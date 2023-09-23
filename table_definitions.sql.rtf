@@ -1,0 +1,342 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red40\green41\blue52;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c20784\c21569\c26667;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww16260\viewh21280\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 CREATE TABLE Race (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Race_ID SERIAL PRIMARY KEY,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Race VARCHAR (50)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Restaurant_Setting (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Setting_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Setting VARCHAR (15)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Restaurant_Type (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Type_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Type VARCHAR (15) CONSTRAINT Restaurant_Type_Check CHECK (Restaurant_Type IN ('Formal', 'Casual'))
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Food_Type (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Food_Type_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Food_Type VARCHAR (15)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE "User" (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 First_Name VARCHAR (50) NOT NULL,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Last_Name VARCHAR (50) NOT NULL,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Created_At DATE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Phone_Number CHAR (12) NOT NULL CONSTRAINT Phone_Num_Length CHECK (char_length(Phone_Number) = 12),\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Email VARCHAR (30) NOT NULL,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Image BYTEA,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Bio TEXT,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Gender VARCHAR (6) NOT NULL CONSTRAINT Gender_Check CHECK (Gender IN ('Male', 'Female')),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Age INTEGER NOT NULL,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Height INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Weight INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Sex_Preference VARCHAR (6) NOT NULL CONSTRAINT Sex_Preference_Check CHECK (Sex_Preference IN ('Male', 'Female')),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Race_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Setting_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Restaurant_Type_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Food_Type_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Race_User_fkey FOREIGN KEY (Race_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Race (Race_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Restaurant_Setting_User_fkey FOREIGN KEY (Restaurant_Setting_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Restaurant_Setting (Restaurant_Setting_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Restaurant_Type_User_fkey FOREIGN KEY (Restaurant_Type_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Restaurant_Type (Restaurant_Type_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Food_Type_User_fkey FOREIGN KEY (Food_Type_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Food_Type (Food_Type_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE User_Match (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_Match_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 PRIMARY KEY(User_ID, User_Match_ID),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT User_User_Match_fkey FOREIGN KEY (User_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES "User" (User_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT User_Match_User_fkey FOREIGN KEY (User_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES "User" (User_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Conversation (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Conversation_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Conversation_Type VARCHAR (10) NOT NULL CONSTRAINT Conversation_Type_Check CHECK (Conversation_Type IN ('Private', 'Group Chat'))
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE User_Conversation (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_ID INTEGER,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Conversation_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 PRIMARY KEY (User_ID, Conversation_ID),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT User_Conversation_fkey FOREIGN KEY (User_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES "User" (User_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Conversation_User_fkey FOREIGN KEY (Conversation_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Conversation (Conversation_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Message (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Message_ID SERIAL PRIMARY KEY,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Content TEXT,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Sent_Time TIMESTAMP,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 GIF BYTEA,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_id INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Conversation_id INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT User_Message_fkey FOREIGN KEY (User_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES "User" (User_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Conversation_Message_fkey FOREIGN KEY (Conversation_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Conversation (Conversation_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Attachment (\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Attachment_ID SERIAL PRIMARY KEY,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Description TEXT,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Image BYTEA,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 File VARCHAR(30),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Message_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Message_Attachment_fkey FOREIGN KEY (Message_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Message (Message_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE Question (
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Question_ID SERIAL PRIMARY KEY,\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Question TEXT
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CREATE TABLE FEEDBACK (\'a0
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Feedback_ID SERIAL PRIMARY KEY,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Rating INTEGER CONSTRAINT Rating_Check CHECK (Rating <= 5 and Rating >= 0),
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 User_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 Question_ID INTEGER,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT User_Feedback_fkey FOREIGN KEY (User_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES "User" (User_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 CONSTRAINT Question_Feedback_fkey FOREIGN KEY (Question_ID)
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 REFERENCES Question (Question_ID) ON DELETE CASCADE ON UPDATE CASCADE
+\f1\fs24 \cf3 \strokec3 \
+
+\f0\fs29\fsmilli14667 \cf2 \strokec2 );
+\f1\fs24 \cf3 \strokec3 \
+}
